@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset = "utf-8">
+  <title> Amicable Numbers </title>
+  </head>
+  <body>
+    <h1> Welcome to Amicable Numbers </h1>
+    <br>
+    <h2> Please enter your numbers </h2>
+      1: <input type= "number" name = "x" id = "x"> <br>
+      2: <input type= "number" name = "y" id = "y"> <br>
+      <button onclick = "printer()">Check if Amicable </button>
+    <script language = "Javascript">
+      function printer(){
+        var h = document.getElementById("x").value;
+        var w = document.getElementById("y").value;
+        document.write("Your numbers: " + h + " "+ w + "</br>");
+        trampoline(h,w);
+      }
+
+      function showArray(a) {
+        for(var b = 0; b < a.length; ++b) {
+          document.write(" " + a[b]);
+        }
+      }
+
+
+      function isFactor(x,f){
+        //document.write("made it into isFactor" + "</br>");
+        if (x % f == 0) {
+          return true;
+        }
+        else{
+          return false;
+        }
+      }
+
+      function getFactors(p){
+        //document.write("made it into getFactors"+ "</br>");
+        var o = [];
+        for(var i = 1; i <= p; ++i){
+          if(p % i == 0){
+            o.push(i);
+            //document.write("popping: "+ i + "</br>");
+          }
+        }
+        //document.write("getFactors returning: "+ o + "</br>");
+        return o;
+      }
+
+      function addArray(r){
+        //document.write("made it into addArray"+ r + "</br>");
+        var k = 0;
+        for(var j = 0; j < r.length; ++j){
+          k += r[j];
+        }
+        //document.write("addArray returning: "+ k + "</br>");
+        return k;
+      }
+
+      function trampoline(h,w){
+        var m = h;
+        var n = w;
+        var q = getFactors(h);
+        var p = getFactors(w);
+        var t = addArray(q);
+        var s = addArray(p);
+        if(t == s){
+          document.write(m + " and " + n +  " are amicable.");
+        } else {
+          document.write(m + " and " + n + " are not amicable.");
+        }
+      }
+    </script>
+
+  </body>
+</html>
